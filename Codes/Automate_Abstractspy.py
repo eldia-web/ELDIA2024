@@ -117,3 +117,4 @@ for i in range(0, data.shape[0]):
     filename = r'/Users/mohammad/Documents/GitHub/EL24/ELDIA/Abstracts/{}_{}.html'.format(data.index[i], data.iloc[i]['First Name'])
     with open(filename, 'w', encoding='utf-8') as f:
         f.writelines(sample)
+# %%

@@ -5,13 +5,13 @@ import numpy as np
 #%%
 text_or = '<tr><td class="{}" nowrap>{} {}</td><td class="{}">{}</td><td class="{}"><a href="./Abstracts/{}.html">{}</a></td></tr>'
 text_po = '<tr><td class="{}" nowrap>{} {}</td><td class="{}"><a href="./Abstracts/{}.html">{}</a></td></tr>'
-with open(r'/Users/yhwang/Desktop/HPC_DownloadTemp/eldia-web.github.io/Codes/text2.txt') as f:
+with open(r'/Users/mohammad/Documents/GitHub/EL24/ELDIA/Codes/text2.txt') as f:
     poster = f.readlines()
-with open(r'/Users/yhwang/Desktop/HPC_DownloadTemp/eldia-web.github.io/Codes/text_oral.txt') as f:
+with open(r'/Users/mohammad/Documents/GitHub/EL24/ELDIA/Codes/text_oral.txt') as f:
     oral = f.readlines()
     
 #%% read excel file
-filename = r'/Users/yhwang/Desktop/HPC_DownloadTemp/eldia-web.github.io/Abstracts/Website-Presentation-Database-BAK_2023-SpringBreak.xlsx'
+filename = r'/Users/mohammad/Documents/GitHub/EL24/ELDIA/Abstracts/Website-Presentation-Database-BAK_2024-SpringBreak.xlsx'
 data = pd.read_excel(filename).set_index('PID')
 
 #%% abstract table
@@ -60,21 +60,21 @@ for j, session in enumerate(sessions):
 poster[70+1] = poster[70+1].format(tables[3])
 poster[81+1] = poster[81+1].format(tables[4])
 
-with open(r'/Users/yhwang/Desktop/HPC_DownloadTemp/eldia-web.github.io/abstracts_poster.html', 'w', encoding='utf-8') as f:
+with open(r'/Users/mohammad/Documents/GitHub/EL24/ELDIA/abstracts_poster.html', 'w', encoding='utf-8') as f:
         f.writelines(poster)
 
 oral[73+1] = oral[73+1].format(tables[0])
 oral[85+1] = oral[85+1].format(tables[1])
 oral[97+1] = oral[97+1].format(tables[2])
 
-with open(r'/Users/yhwang/Desktop/HPC_DownloadTemp/eldia-web.github.io/abstracts_oral.html', 'w', encoding='utf-8') as f:
+with open(r'/Users/mohammad/Documents/GitHub/EL24/ELDIA/abstracts_oral.html', 'w', encoding='utf-8') as f:
         f.writelines(oral)
         
 #%% abstract details
-with open(r'/Users/yhwang/Desktop/HPC_DownloadTemp/eldia-web.github.io/Codes/abstract_oral.txt') as f:
+with open(r'/Users/mohammad/Documents/GitHub/EL24/ELDIA/Codes/abstract_oral.txt') as f:
     text_oral = f.readlines()
 
-with open(r'/Users/yhwang/Desktop/HPC_DownloadTemp/eldia-web.github.io/Codes/abstract_poster.txt') as f:
+with open(r'/Users/mohammad/Documents/GitHub/EL24/ELDIA/Codes/abstract_poster.txt') as f:
     text_poster = f.readlines()
 
 #%% write files
@@ -114,6 +114,6 @@ for i in range(0, data.shape[0]):
     else:
         sample[33+1] = sample[33+1].format(data.iloc[i]['Link to Video'])
     
-    filename = r'/Users/yhwang/Desktop/HPC_DownloadTemp/eldia-web.github.io/Abstracts/{}_{}.html'.format(data.index[i], data.iloc[i]['First Name'])
+    filename = r'/Users/mohammad/Documents/GitHub/EL24/ELDIA/Abstracts/{}_{}.html'.format(data.index[i], data.iloc[i]['First Name'])
     with open(filename, 'w', encoding='utf-8') as f:
         f.writelines(sample)
